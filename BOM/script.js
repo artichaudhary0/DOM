@@ -1,3 +1,9 @@
+// location.reload()
+
+// setTimeout(()=>{
+//     location.reload()
+// },2000)
+
 let box = document.getElementById("product-list")
 let response = fetch("https://dummyjson.com/products")
 
