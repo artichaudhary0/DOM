@@ -55,9 +55,14 @@ const questions = [
 const style = document.createElement('style');
 style.textContent = `
     body {
+        margin: 0;
+        height : 100vh;
         padding: 50px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: Arial, sans-serif;
-        background: linear-gradient(to right, pink, blue, pink); 
+        background: linear-gradient(135deg, #ffafbd, #ffc3a0, #fbc2eb, #a6c1ee);
     }
 
     .quiz-container {
@@ -104,6 +109,10 @@ style.textContent = `
     .correct {
         background-color: rgb(144, 238, 144); 
     }
+        
+    .incorrect {
+        background-color: rgb(255, 99, 71); 
+    }
 
     .selected {
         background-color: rgb(144, 238, 144); 
@@ -131,6 +140,9 @@ function loadQuestion() {
         li.innerHTML = `<input type="radio" name="option" value="${index}" id="option${index}">
                         <label for="option${index}">${option}</label>`;
             jawabList.appendChild(li);
+            li.addEventListener('click', () => {
+                document.getElementById(`option${index}`).checked = true;
+            });
     });
     nextButton.style.display = "none";
     submitButton.style.display = "inline"; 
@@ -159,10 +171,13 @@ submitButton.addEventListener("click", () => {
     const options = document.getElementsByName("option");
     
     options[sahiJawab].parentElement.classList.add("correct");
-    options[optionChuno].parentElement.classList.add("selected");
 
     if (optionChuno === sahiJawab) {
+
         score++;
+        options[optionChuno].parentElement.classList.add("selected");
+    }else{
+        options[optionChuno].parentElement.classList.add("incorrect");
     }
 
     for (const option of options) {
