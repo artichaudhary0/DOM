@@ -1,13 +1,4 @@
-#css-image {
-    border: 4px solid green;
-}
-
-[alt="javascript roadmap"] {
-    border: 4px solid hotpink;
-}
-
-[tttt = "arti"]{
-    color: orange;
-[alt="javascript roadmap"] {
-    border: 4px solid hotpink;
-}
+let p = document.querySelector('p')
+let h1 = document.querySelector('.css-image')
+// p.innerHTML = `<h4>Heloo</h4>`
+// console.log(p)
